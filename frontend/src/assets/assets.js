@@ -16,6 +16,7 @@ import star_group from './star_group.png'
 import credit_star from './credit_star.svg'
 import profile_icon from './profile_icon.png'
 import download_icon from "./download_icon.svg"
+import no_image from "./no_image.png"
 
 export const assets = {
     favicon,
@@ -29,7 +30,8 @@ export const assets = {
     star_group,
     credit_star,
     profile_icon,
-    download_icon
+    download_icon,
+    no_image
 }
 
 export const stepsData = [
@@ -45,8 +47,13 @@ export const stepsData = [
     },
     {
       title: 'Download & Generate another',
-      description: 'Instantly download your creation from our platform and generate another image',
+      description: 'Instantly download your creation from our platform and generate another image.',
       icon: step_icon_3,
+    },
+    {
+    title: 'See History',
+    description: 'See your previously generated image in history section.',
+    icon: step_icon_1,
     },
   ];
 

@@ -11,6 +11,8 @@ const AppContextProvider = (props)=>{
     const [token, setToken] = useState(localStorage.getItem('token') || "");
     const [credit,setCredit] = useState(false)
     const navigate = useNavigate();
+    const [images,setImages] = useState([]);
+
 
     const backend_url = import.meta.env.VITE_BACKEND_URL
 
@@ -18,6 +20,7 @@ const AppContextProvider = (props)=>{
        localStorage.removeItem('token');
        setToken("")
        setUser(null)
+       navigate("/");
     }
 
     const getCredits = async ()=>{
@@ -56,14 +59,45 @@ const AppContextProvider = (props)=>{
              toast.error(error.message)
         }
     }
+    const getImages = async ()=>{
+        try {
+            const { data } = await axios.get(backend_url + "/api/image/get-images", {
+                headers: { token }
+            })
+            if(!data.success){
+                toast.error(data.message);
+                return
+            }
+            setImages(data.images);
+        } catch (error) {
+            toast.error(error.message);
+        }
+    }
+    const deleteImage = async (id)=>{
+        try {
+            const { data } = await axios.delete(backend_url + `/api/image/delete-image/${id}`, {
+                headers: { token }
+            })
+            if (!data.success) {
+                toast.error(data.message);
+            }else{
+                toast.success(data.message);
+                setImages(prev=>prev.filter((image)=>image._id !== id))
+            }
+        } catch (error) {
+            toast.error(error.message);
+        }
+    }
 
     useEffect(()=>{
         if(token){
             getCredits();
+            getImages();
         }
     },[token])
     const value ={
         user,setUser,showAuth,setShowAuth,backend_url,token,setToken,credit,setCredit,getCredits,logout,generateImage
+        ,images,getImages,deleteImage
     }
     return (
         <AppContext.Provider value={value}>

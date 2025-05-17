@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { stepsData } from '../assets/assets'
 import { motion } from 'motion/react'
 

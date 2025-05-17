@@ -66,7 +66,7 @@ const BuyCredit = () => {
       transition={{ duration: 1 }}>
       <h2 className='p-3 border border-neutral-400 rounded-full w-28 mx-auto my-5'>Our Plans</h2>
       <h1 className='md:text-4xl text-3xl font-medium'>Choose the Plan</h1>
-      <div className="my-10 w-5/6 mx-auto flex justify-evenly flex-wrap">
+      <div className="my-10 w-5/6 mx-auto flex justify-evenly gap-3 flex-wrap">
         {
           plans.map((plan,i)=>(
             <div className="text-left p-4 py-6 bg-white border border-neutral-300 rounded-lg shadow-xl shadow-neutral-200

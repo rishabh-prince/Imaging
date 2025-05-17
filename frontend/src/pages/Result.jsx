@@ -20,7 +20,7 @@ const Result = () => {
       toast.error("Please login for image generation");
       return ;
      }
-     if(inputData){
+     if(inputData.trim()){
        setLoading(true);
       const image = await generateImage(inputData);
       if(image){

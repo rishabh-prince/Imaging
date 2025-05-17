@@ -52,7 +52,7 @@ const Login = () => {
     }
     return (
         <div className='fixed top-0 bottom-0 left-0 right-0 z-10 backdrop-blur-md
-     bg-black/20 flex justify-center items-center'>
+     bg-black/20 flex justify-center items-center '>
             <motion.form onSubmit={handleSubmit} className='md:w-1/2 sm:w-2/3 w-5/6 text-center bg-gradient-to-tr from-neutral-300 to-orange-300 py-5 px-2 rounded-lg relative'
                 initial={{ y: 50, opacity: 0.2 }}
                 whileInView={{ opacity: 1, y: 0 }}
